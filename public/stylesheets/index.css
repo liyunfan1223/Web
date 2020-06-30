@@ -1,0 +1,84 @@
+body{
+    background-color: #DDDDDD;
+}
+.background{
+    z-index: -1;
+    background-image: url(../images/leaves.png);
+    background-position: 50%;
+    /* background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../images/background2.png);
+    background-size: auto 100%;
+    background-position-x: 10%; */
+    position:absolute;
+    top:0px;
+    bottom:0px;
+    left: 0px;
+    right:0px;
+    opacity: 1;
+}
+.container{
+    position: absolute;
+    top:20%;
+    /* bottom: 0px; */
+    left:0px;
+    right:0px;
+    margin: auto;
+    width: 600px;
+    background-color: #EFFEFE;
+    border-radius:20px;
+    box-shadow: 4px 4px 10px black;
+    opacity: 0.95;
+    display:flex;
+    align-content: center;
+    flex-direction: column;
+}
+.homepage_info{
+    display:flex;
+    height:50px;
+    justify-content: center;
+    font-size: 30px;
+    font-family: '黑体';
+}
+.usericon{
+    height:100px;
+    display:flex;
+    justify-content: center;
+}
+.info_row{
+    height:35px;
+    display:flex;
+    justify-content: center;
+    font-size:18px;
+}
+.usericon_icon{
+    height:100px;
+    width:auto;
+}
+.options_row{
+    display: flex;
+    height: 180px;
+    width: 100%;
+    justify-content: center;
+}
+.options_btn{
+    margin-top:10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding:0px;
+    height:180px;
+    width: 40%;
+    border: none;
+    background-color:#A7F1A7;
+    border-radius: 20px;
+}
+.options_icon{
+    height:50%;
+}
+.options_text{
+    width: 100%;
+    font-size: 22px;
+}
+.buttom{
+    height:30px;
+}

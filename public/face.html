@@ -1,0 +1,91 @@
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="node_modules/jquery.facedetection/src/ccv.js"></script>
+<script src="node_modules/jquery.facedetection/src/jquery.facedetection.js"></script>
+<script src="node_modules/jquery.facedetection/src/cascade.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        html,body{
+            margin: 0;
+            padding:0;
+        }
+        .drawDiv{
+            position: absolute;
+            border: 3px solid yellow;
+        }
+        #image{
+            float: left;
+        }
+        .imgDiv{
+            float: left;
+        }
+    </style>
+</head>
+ 
+<body>
+    <img id="image" src=""/>
+    <div class="imgDiv">
+ 
+        <div class="draw"></div>
+        <br/>
+        <input type="button" value="开始识别" onclick="identifyFace()">
+        <!-- <input type="file"onchange="selectImage(this);" /> -->
+    </div>
+    <a class='return_index' href='/'>返回首页</a>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="jquery.facedetection/src/ccv.js"></script>
+    <script src="jquery.facedetection/src/jquery.facedetection.js"></script>
+    <script src="jquery.facedetection/src/cascade.js"></script>
+    <script>
+        //识别框样式
+        var str='';
+        // 上传图片，使用文件流
+        function selectImage(file){
+            if(!file.files || !file.files[0]){
+                return;
+            }
+            var reader = new FileReader();
+            reader.onload = function(evt){
+                console.log(evt);
+                $('#image').attr('src', evt.target.result);
+            }
+            str = '';
+            document.getElementsByClassName('draw')[0].innerHTML = '';
+            reader.readAsDataURL(file.files[0]);
+        }
+            
+        //开始识别
+        function identifyFace() {
+            str='';
+            $('#image').attr('src', '/images/now.jpg');
+            $('#image').faceDetection(
+                function (faces) {
+ 
+                    for (var i in faces) {
+                        //识别结果循环传入方法drawFace
+                        console.log(faces[i]);
+                        drawFace(faces[i].x, faces[i].y, faces[i].width, faces[i].height,faces[i].confidence);
+                    }
+                }
+            );
+        }
+        //图片识别区的x,y轴以及宽高,confidence表示自信程度
+        function drawFace(x,y,width,height,confidence){
+            var confidenceStr='';
+            if(confidence<0){
+                confidenceStr='自信满满'
+            }else if(confidence>2){
+                confidenceStr='很不自信啊'
+            }else{
+                confidenceStr='一般般'
+            }
+            //将框框套上去
+            str+='<div class="drawDiv" style="left:'+x+'px;top:'+y+'px;width:'+width+'px;height:'+height+'px;">'+confidenceStr+'</div>'
+            document.getElementsByClassName('draw')[0].innerHTML=str
+        }
+    </script>
+</body>
+</html>

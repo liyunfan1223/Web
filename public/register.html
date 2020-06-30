@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app='register' ng-controller='registerController'>
+    <head>
+        <title>注册</title>
+        <script src='/angular/angular.min.js'></script>
+        <script src='/jquery/dist/jquery.min.js'></script>
+        <link rel="stylesheet"  href='/stylesheets/register.css'></script>
+        <script src='/javascripts/register.js'></script>
+        <!-- <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script> -->
+        <!-- 适应手机端 -->
+        <!-- <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0" name="viewport"> -->
+    </head>
+    <body >
+        <div class='container'>
+            <div class='title'>
+                <img src='/images/check.png' class='icon'>
+                <div class='title_text'>注册账号</div>
+            </div>
+            <div class='input_row'>
+                <img src='/images/user2.png' class='icon'>
+                <input ng-model='username' class='input_box' type='text' placeholder="用户名(6-15位数字、英文和下划线)" autocomplete="off">
+            </div>
+            <div class='input_row'>
+                <img src='/images/key.png' class='icon'>
+                <input ng-model='password' class='input_box' type='password' placeholder="密码(6-18位数字、英文和下划线)" autocomplete="new-password">
+            </div>
+            <div class='input_row'>
+                <img src='/images/check.png' class='icon' style="visibility:hidden">
+                <input ng-model='passwordChecker'class='input_box' type='password' placeholder="确认密码" autocomplete="new-password">
+            </div>
+            <div class='input_row'>
+                <div class='identify'>
+                    <img src='/images/student.png' class='icon'>
+                    <input ng-model='loginType' type='radio' name='op1' class='options' value=0>
+                    <p class='identify_text'>学生</p>
+                </div>
+                <div class='identify'>
+                    <img src='/images/teacher.png' class='icon'>
+                    <input ng-model='loginType' type='radio' name='op1' class='options' value=1>
+                    <p class='identify_text'>教师</p>
+                </div>
+            </div>
+            <div ng-show="loginType=='1'" class='input_row'>
+                <img src='/images/check2.png' class='icon'>
+                <input ng-model='identify' class='input_box' type='password' placeholder="验证码(联系管理员)" autocomplete="new-password">
+            </div>
+            <div class='button_row'>
+                <button ng-click="register()"class='register_btn'>注册</button>
+            </div>
+            <div class='return_row'>
+                <a class='return_a' href='/login'>返回登陆</a>
+            </div>
+            <div  ng-show='isShow' class='signal'>
+                <img ng-src="/images/{{signalSrc}}.png" class='signal_icon'>
+                <div class='signal_text'>
+                    {{msg}}
+                </div>
+            </div>
+            <div class='buttom'>
+
+            </div>
+        </div>
+        <div class='background'></div>
+    </body>
+    
+</html>

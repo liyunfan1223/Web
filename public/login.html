@@ -1,0 +1,49 @@
+<!doctype html>
+<html ng-app='index' ng-controller='indexController'>
+    <head>
+        <title>登录</title>
+        <script src='/angular/angular.min.js'></script>
+        <script src='/jquery/dist/jquery.min.js'></script>
+        <link rel="stylesheet"  href='/stylesheets/login.css'></script>
+        <script src='/javascripts/login.js'></script>
+        <!-- 适应手机端 -->
+        <!-- <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0" name="viewport"> -->
+    </head>
+    <body>
+        <div class='background'></div>
+        <div class='container'>
+            <div class='usericon'>
+                <img src='/images/user.png' class='usericon_icon'>
+            </div>
+            <div class='username'>
+                <div class='username_row'>
+                    <img src='/images/user2.png' class='username_icon'>
+                    <!-- 设置autocomplete，避免页面自动填写，密码框同 -->
+                    <input ng-model='username' class='username_input' type='text' placeholder="用户名" autocomplete="off">
+                </div>
+            </div>
+            <div class='password'>
+                <div class='password_row'>
+                    <img src='/images/key.png' class='password_icon'>
+                    <input ng-model='passwords' class='password_input' type='password' placeholder="密码" autocomplete="new-password">
+                </div>
+            </div>
+            <div class='login'>
+                <button class='login_btn' ng-click='login()'>登录</button>        
+            </div>
+            <div class='register_enter'>
+                <a href='/register'>注册账号</a>
+            </div>
+            <div ng-show='isShow' class='signal'>
+                <img ng-src="/images/{{signalSrc}}.png" class='signal_icon'>
+                <div class='signal_text'>
+                    <p>{{msg}}</p>
+                </div>
+            </div>
+        </div>
+        <!-- <div class='text'>
+            <img src='/images/background2 - 副本.png'>
+        </div> -->
+    </body>
+    
+</html>

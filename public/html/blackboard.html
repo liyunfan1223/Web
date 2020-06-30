@@ -1,0 +1,44 @@
+<style>
+    .can{
+        border: 2px black solid;
+        left:0px;
+        right:0px;
+        margin:auto;
+    }
+    .showBoard{
+        border: 2px black solid;
+        left:0px;
+        right:0px;
+        height:1000px;
+        width: 1000px;
+        margin:auto;
+    }
+    .barrage_show{
+        pointer-events: none;
+        position:absolute;
+        top:0px;
+    }
+</style>
+
+<body>
+    <div class='center' id="container" ng-show="isTeacher">
+        <canvas class='can' id="canvas" width="1000" height="1000"></canvas>
+        <br>
+        <input type="color" id="color" onchange="showColor()">选择颜色
+        <input type="range" id="width" onchange="showRange()">选择笔触
+        <input type="checkbox" id="eraser" onchange="switchEraser()">橡皮擦
+        <button onclick="broadcast()">广播</button>
+        <button onclick="clearCanvas()">清空</button>
+        <div id='show'></div>
+    </div>
+    <div ng-show="!isTeacher">
+        <div class="showBoard" id='showBoard'></div>
+        
+    </div>
+    <div class='barrage_show' ng-show='barrageIsShow'>
+        <canvas width="1000" height="1000" id="barrage"></div>
+        <input id="barrageText" type="text">
+        <button onclick="barrageSubmit()">发送弹幕</button>
+        <input type="checkbox" id="showBarrage" ng-click="switchBarrage()" checked="checked">开启弹幕
+    </div>
+</body>

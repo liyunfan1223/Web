@@ -1,0 +1,56 @@
+<html ng-app='class' ng-controller='classController'>
+    <head>
+        <title>课堂</title>
+        <!-- <meta charset="utf-8"> -->
+        <script src='/angular/angular.min.js'></script>
+        <!-- <script src='/angular-file-upload/dist/angular-file-upload.min.js'></script> -->
+        <script src='/jquery/dist/jquery.min.js'></script>
+        <link rel="stylesheet"  href='/stylesheets/class.css'></script>
+        <script src='/javascripts/class.js'></script>
+        <script src="/echarts/dist/echarts.min.js"></script>
+        
+    </head>
+    <body>
+        {{try}}
+        <div class='navigator_row'>
+            <!-- <div class='navigator_background'></div>    -->
+            <img class='navigator_icon' src='images/guide.png'>
+            <div class='navigator_head'>
+                <div>导航栏</div>
+            </div>
+            <button ng-click="chat()"class='navigator_btn'>
+                <div class='navigator_text'>实时消息</div>
+            </button>
+            <button ng-click="file()"class='navigator_btn'>
+                <div class='navigator_text'>文件共享</div>
+            </button>
+            <button ng-click="problem()" class='navigator_btn'>
+                <div class='navigator_text'>课堂测验</div>
+            </button>
+            <button ng-click="blackboard()" class='navigator_btn'>
+                <div class='navigator_text'>在线黑板</div>
+            </button>
+            <div class='user_info'>
+                <img src='/images/user.png' class='usericon'>
+                <div class='info_row'>
+                    <div style="display:inline">用户名：</div>
+                    <div style="display:inline" class='info_text'>{{username}}</div>
+                </div>
+                <div class='info_row'>
+                    <div style="display:inline">登陆类型：</div>
+                    <div  style="display:inline" class='info_text'>{{loginType}}</div>
+                </div>
+                <button ng-click='return()' class='return_btn'>
+                    <img src='/images/return.png' class='return_icon'>返回首页
+                </button>
+            </div>
+        </div>
+        
+        <div ng-include="'html/chat.html'" class='container' ng-show="chatIsShow"></div>
+        <div ng-include="'html/file.html'" class='container' ng-show="fileIsShow"></div>
+        <div ng-include="'html/problem.html'" class='container_problem' ng-show="problemIsShow"></div>
+        <div ng-include="'html/blackboard.html'" class='container_blackboard' ng-show="blackboardIsShow"></div>
+        
+        <div class='background'></div>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JSMpeg Stream Client</title>
+	<style type="text/css">
+		html, body {
+			background-color: #111;
+			text-align: center;
+		}
+		.return_index{
+			color:white;
+		}
+	</style>
+	
+</head>
+<body>
+	<canvas id="video-canvas"></canvas>
+	<script type="text/javascript" src="/jsmpeg-master/jsmpeg.min.js"></script>
+	<script type="text/javascript">
+		var canvas = document.getElementById('video-canvas');
+		var url = 'ws://'+window.location.hostname+':8082/';
+		var player = new JSMpeg.Player(url, {canvas: canvas});
+	</script>
+	<div style="color:white">推流地址：http://192.168.4.1:8081/supersecret</div>
+	<a class='return_index' href='/'>返回首页</a>
+</body>
+</html>
+

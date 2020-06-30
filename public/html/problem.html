@@ -1,0 +1,212 @@
+<style>
+    .container_student{
+        margin:50px;
+        border: 2px black solid;
+        /* left:10%; */
+        height: 1000px;
+        width: 500px;
+    }
+    .container_teacher{
+        margin:50px;
+        border: 2px black solid;
+        /* left:10%; */
+        height: 1000px;
+        width: 500px;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+    }
+    .test_title{
+        margin-left:10px;
+    }
+    .problem_test{
+        display: flex;
+        flex-direction: column;
+        font-size:20px;
+    }
+    .test_description{
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .test_options_row{
+        margin-bottom:10px;
+        margin-left:30px;
+    }
+    .text_btn_row{
+        height: 30px;
+        display: flex;
+        align-items: center;
+    }
+    .test_options_btn{
+        margin:auto;
+        width: 70%;
+        height: 30px;
+    }
+    .problem_title{
+        width: 100px;
+        font-size: 22px;
+        /* margin:auto; */
+    }
+    .problem_upload{
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .problem_description_row{
+        display: flex;
+        justify-content: center;
+    }
+    .problem_description{
+        font-size: 18px;
+        width: 80%;
+        height: 80px;
+        margin-bottom: 10px;
+    }
+    .problem_options_row{
+        display:flex;
+        justify-content: center;
+    }
+    .problem_options{
+        font-size: 18px;
+        margin:3px;
+        width: 50%;
+        height:30px;
+    }
+    .problem_test_signal{
+        /* justify-content: center; */
+        height: 300px;
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+    }
+    .problem_test_signal_text{
+        line-height: 300px;
+    }
+    .test_options_text{
+        display:inline;
+    }
+    .text_signal_row{
+        margin-top:10px;
+        display: flex;
+        justify-content: center;
+    }
+    .correct_answer{
+        display:flex;
+        font-size: 18px;
+    }
+    .correct_text{
+        display:inline;
+    }
+    .problem_result{
+        margin-top: 10px;
+        width: 100%;
+    }
+    .problem_submit{
+        margin-top:10px;
+        width: 70%;
+        font-size: 17px;
+        
+    }
+    .problem_interval{
+        height: 10px;
+        width: 100%;
+        border-bottom: 2px black solid;
+    }
+    .result_row{
+        margin-left:50px;       
+    }
+    .result_echart{
+        width:100%;
+        height:350px;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+    .echarts{
+        width: 400px;
+        height: 350px;
+    }
+</style>
+
+<div ng-show='!isTeacher' class='container_student'>
+    <div ng-show='showTest' class='problem_test'>
+        <div class='test_title'>测验题目</div>
+        <div class='test_proplem'>
+            <div class='test_description'>
+                题目描述:{{test_des}}
+            </div>
+            <div class='test_options_row'>
+                <input ng-model='$parent.test_option' class='test_options' type='radio' value='0' name='op'>
+                <div class='test_options_text'>A : {{test_opA}}</div>
+            </div>
+            <div class='test_options_row'>
+                <input ng-model='$parent.test_option' class='test_options' type='radio' value='1' name='op'>
+                <div class='test_options_text'>B : {{test_opB}}</div>
+            </div>
+            <div class='test_options_row'>
+                <input ng-model='$parent.test_option' class='test_options' type='radio' value='2' name='op'>
+                <div class='test_options_text'>C : {{test_opC}}</div>
+            </div>
+            <div class='test_options_row'>
+                <input ng-model='$parent.test_option' class='test_options' type='radio' value='3' name='op'> 
+                <div class='test_options_text'>D : {{test_opD}}</div>
+            </div>
+            <div class='text_btn_row'>
+                <input class='test_options_btn' ng-disabled='test_option==undefined || testSubmit_disabled' ng-click='$parent.testSubmit()' type='button' value='提交'>
+            </div>
+            <div class='text_signal_row'>
+                <div class='test_signal'>{{test_msg}}</div>
+            </div>
+        </div>
+    </div>
+    <div ng-show='!showTest' class='problem_test_signal'>
+        <div class='problem_test_signal_text'>等待教师上传题目。</div>
+    </div>
+</div>
+
+<div ng-show="isTeacher" class='container_teacher'>
+    <div class='problem_title'>上传题目</div>
+    <div class='problem_upload'>
+        <div class='problem_description_row'>
+            <input ng-model='$parent.problem_des' class='problem_description' placeholder="输入题目描述">
+        </div>
+        <div class='problem_options_row'>
+            <input ng-model='$parent.problem_opA' class='problem_options' placeholder="输入选项A">
+            <input ng-model='$parent.problem_opB' class='problem_options' placeholder="输入选项B">
+        </div>
+        <div class='problem_options_row'>
+            <input ng-model='$parent.problem_opC' class='problem_options' placeholder="输入选项C">
+            <input ng-model='$parent.problem_opD' class='problem_options' placeholder="输入选项D">
+        </div>
+        <div class='correct_answer'>
+            <div class='correct_answer_text'>正确答案：</div>
+            <div class='problem_correct_row'>
+                <input ng-model='$parent.correct_option' class='correct_options' type='radio' value='0' name='co'>
+                <div class='correct_text'>选项A</div>
+            </div>
+            <div class='problem_correct_row'>
+                <input ng-model='$parent.correct_option' class='correct_options' type='radio' value='1' name='co'>
+                <div class='correct_text'>选项B</div>
+            </div>
+            <div class='problem_correct_row'>
+                <input ng-model='$parent.correct_option' class='correct_options' type='radio' value='2' name='co'>
+                <div class='correct_text'>选项C</div>
+            </div>
+            <div class='problem_correct_row'>
+                <input ng-model='$parent.correct_option' class='correct_options' type='radio' value='3' name='co'>
+                <div class='correct_text'>选项D</div>
+            </div>
+        </div>
+        <!-- {{correct_option}} -->
+    </div>
+    <input  ng-disabled='correct_option==undefined' ng-click='problemSubmit()' type='button' class='problem_submit' value='上传题目'>
+    <div class='problem_interval'></div>
+    <div ng-show='showResult' class='problem_result'>
+        <div class='result_echart'>
+            <div class='echarts' id="echarts_pie"></div>
+            <div class='echarts' id="echarts_line"></div>
+        </div>
+    </div>
+</div>

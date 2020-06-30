@@ -1,0 +1,68 @@
+<style>
+    .top{
+        height:50px;
+    }
+    .download{
+        width: 80%;
+        /* border: 2px black solid; */
+        margin-left: auto;
+        margin-right: auto;
+        height:85%;
+        overflow-y:auto;
+    }
+    .submitform{
+        height:36px;
+        margin-bottom: 2%;
+    }
+    .fileform{
+        height:100%;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+    .fileChoose{
+        margin-right:1%;
+        width: 55%;
+        font-size:18px;
+        border: 3px #2B6FD5 solid;
+        display: flex;
+        justify-content: center;
+    }
+    .fileSubmit{
+        height: 100%;
+        width: 15%;
+        background-color: #2B6FD5;
+        color: white;
+    }
+    .download_info{
+        font-size: 20px;
+        font-family: '黑体';
+    }
+    .download_row{
+        margin-top:2%;
+        display:flex;
+        align-content: center;
+        height:55px;
+        padding-bottom: 1%;
+        border-bottom: 2px black solid;
+    }
+    .download_icon{
+        height:50px;
+    }
+    .download_text{
+        font-size: 20px;
+        line-height: 50px;
+    }
+</style>
+<div class='top'>
+</div>
+<div class='submitform'>
+    <form class='fileform' id='fileform' ng-disabled="true">
+        <input class='fileChoose' ng-disabled="!isTeacher" file-model='file' type='file' name='file' id='file'>
+        <button class='fileSubmit' ng-disabled="!isTeacher" ng-click='upload()'>上传</button>
+    </form>
+</div>
+<div class='download' id='download'>
+    <div class='download_info'>文件列表：</div>
+
+</div>

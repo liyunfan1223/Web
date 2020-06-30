@@ -1,0 +1,60 @@
+<style>
+    .message_container{
+        width: 80%;
+        height: 90%;
+        margin:auto;
+    }
+    .chatInput{
+        display: flex;
+        justify-content: center;
+        height: 5%;
+        margin-bottom: 3%;
+    }
+    .chat_info{
+        font-size: 20px;
+        height:90%;
+        overflow-y:auto;
+    }
+    .chat_infoText{
+        display:inline;
+        font-size: 20px;
+    }
+    .chat_infoBtn{
+        position: absolute;
+        right:11%;
+        font-size:16px;
+    }
+    .message_row{
+        height:3%;
+        font-size: 22px;
+        margin-bottom: 1%;
+    }
+    .message_text{
+        display:inline;
+    }
+    .message_input{
+        width: 80%;
+        font-size: 18px;
+    }
+    .message_btn{
+        background-color: #2B6FD5;
+        width: 20%;
+        color:white;
+    }
+    .message_icon{
+        height:100%;
+        margin-right: 1%;
+    }
+</style>
+<div class='message_container'>
+    <div class='chatInput'>
+        <!-- $parent解决子页面作用域问题，否则数据不能实时更新 -->
+        <input class='message_input' ng-model="$parent.chatMessage" type='text' placeholder="请输入消息">
+        <button class='message_btn' ng-click="chatSend()">发送</button>
+    </div>
+    <div class='chatarea' id='chatarea'>
+        <div class='chat_infoText'>实时消息：</div>
+        <button ng-click='chatClear()' class='chat_infoBtn'>清空消息</button>
+        <div class='chat_info' id='chat_info'></div>
+    </div>
+</div>

@@ -1,0 +1,122 @@
+body{
+    background-color: #DDDDDD;
+}
+.background{
+    z-index: -1;
+    background-image: url(../images/background2.png);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position-x: 30%;
+    position:absolute;
+    top:0px;
+    bottom:0px;
+    left: 0px;
+    right:0px;
+    opacity: 0.85;
+}
+
+.container{
+    position: absolute;
+    top:32%;
+    left:52%;
+    width: 600px;
+    /* height : 480px; */
+    background-color: #F7F7F7;
+    border-radius:20px;
+    box-shadow: 4px 4px 10px black;
+}
+.container{
+    display:flex;
+    align-content: center;
+    flex-direction: column;
+}
+.title{
+    padding-top:25px;
+    width: 100%;
+    height:50px;
+    display:flex;
+    align-content: center;
+    justify-content: center;
+}
+.title .icon{
+    height:100%;
+    padding-right: 3%;
+    /* vertical-align: middle; */
+}
+.title_text{
+    font-size:25px;
+    line-height: 43px;
+}
+.input_row{
+    padding-left:15%;
+    padding-top:25px;
+    width: 100%;
+    height:35px;
+    display:flex;
+}
+.input_row .icon{
+    height:100%;
+    padding-right: 3%;
+}
+.input_row .input_box{
+    width: 60%;
+    font-size: 17px;
+}
+.identify{
+    display:flex;
+    padding-left: 7%;
+    height: 100%;
+    width:30%;
+}
+.identify_text{
+    display: inline;
+    line-height: 50%;
+    font-size: 17px;
+}
+.options{
+    height: 100%;
+}
+.button_row{
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;
+    height: 35px;
+    padding-bottom: 15px;
+}
+.register_btn{
+    width:50%;
+    height:100%;
+    background-color:blue;
+    border-radius: 10px;
+    font-size: 16px;
+    color:#F7F7F7;
+    border:none;
+    box-shadow: 2px 2px 5px black;
+}
+.return_row{
+    width: 100%;
+    height:25px;
+    display:flex;
+    justify-content: center;
+}
+.signal{
+    display:flex;
+    justify-content: center;
+    align-content: center;
+    height:35px;
+}
+.signal_icon{
+    height:100%;
+    padding-right: 10px;
+}
+.signal_text{
+    line-height: 35px;
+    height:100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    color: green;
+}
+.buttom{
+    height:20px;
+}

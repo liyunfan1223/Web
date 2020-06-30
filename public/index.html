@@ -1,0 +1,51 @@
+<!doctype html>
+<html ng-app='index' ng-controller='indexController'>
+    <head>
+        <title>首页</title>
+        <script src='/angular/angular.min.js'></script>
+        <script src='/jquery/dist/jquery.min.js'></script>
+        <link rel="stylesheet"  href='/stylesheets/index.css'></script>
+        <script src='/javascripts/index.js'></script>
+        <!-- 适应手机端 -->
+        <!-- <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0" name="viewport"> -->
+    </head>
+    <body>
+        <div class='container'>
+            <div class='homepage_info'>
+                <div>首页</div>
+            </div>
+            <div class='usericon'>
+                <img src='/images/user.png' class='usericon_icon'>
+            </div>
+            <div class='info_row'>
+                <div>用户名：{{username}}</div>
+            </div>
+            <div class='info_row'>
+                <div>登陆类型：{{loginType}}</div>
+            </div>
+            <div class='options_row'>
+                <button class='options_btn' ng-click='logout()' class='logout_btn'>
+                    <img class='options_icon' src='images/logout.png'>
+                    <div class='options_text'>注销账号</div>
+                </button>
+                <button class='options_btn' ng-click='class()' class='logout_btn'>
+                    <img class='options_icon' src='images/class.png'>
+                    <div class='options_text'>进入课堂</div>
+                </button>
+                <button class='options_btn' ng-click='live()' class='logout_btn'>
+                    <img class='options_icon' src='images/live.png'>
+                    <div class='options_text'>直播间</div>
+                </button>
+                <button class='options_btn' ng-click='photo()' class='logout_btn'>
+                    <img class='options_icon' src='images/photo.png'>
+                    <div class='options_text'>摄影室</div>
+                </button>
+            </div>
+            <div class='buttom'>
+
+            </div>
+        </div>
+        <div class='background'></div>
+    </body>
+    
+</html>
